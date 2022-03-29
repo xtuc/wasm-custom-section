@@ -106,6 +106,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "pretty-hex"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bc5c99d529f0d30937f6f4b8a86d988047327bb88d04d2c4afc356de74722131"
+
+[[package]]
 name = "strsim"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -131,7 +137,9 @@ name = "wasm-custom-section"
 version = "0.1.0"
 dependencies = [
  "clap",
+ "pretty-hex",
  "wasm-gen",
+ "wasmparser",
 ]
 
 [[package]]
@@ -143,6 +151,12 @@ dependencies = [
  "byteorder",
  "leb128",
 ]
+
+[[package]]
+name = "wasmparser"
+version = "0.83.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "718ed7c55c2add6548cca3ddd6383d738cd73b892df400e96b9aa876f0141d7a"
 
 [[package]]
 name = "winapi"

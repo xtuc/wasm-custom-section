@@ -8,4 +8,6 @@ authors = ["Sven Sauleau <sven@sauleau.com>"]
 
 [dependencies]
 clap = { version = "3.1", features = ["cargo"] }
-wasm-gen = "0.1.4"
+wasm-gen = "0.1"
+wasmparser = "0.83"
+pretty-hex = "0.2.1"
