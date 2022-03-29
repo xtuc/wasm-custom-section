@@ -1,0 +1,11 @@
+[package]
+name = "wasm-custom-section"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Write a custom section in a Wasm module"
+authors = ["Sven Sauleau <sven@sauleau.com>"]
+
+[dependencies]
+clap = { version = "3.1", features = ["cargo"] }
+wasm-gen = "0.1.4"
