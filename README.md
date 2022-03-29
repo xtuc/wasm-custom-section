@@ -2,6 +2,12 @@
 
 > Write a custom section in a Wasm module
 
+## Install
+
+```
+$ cargo install wasm-custom-section
+```
+
 ## Usage
 
 ### Add a new custom section
