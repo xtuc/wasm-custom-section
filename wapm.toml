@@ -1,0 +1,19 @@
+[package]
+name = "xtuc/wasm-custom-section"
+version = "0.1.1"
+description = "Write a custom section in a Wasm module"
+license = "MIT"
+repository = "https://github.com/xtuc/wasm-custom-section"
+readme = "README.md"
+
+[[module]]
+name = "wasm-custom-section"
+source = "target/wasm32-wasi/release/wasm-custom-section.wasm"
+abi = "wasi"
+
+[module.interfaces]
+wasi = "0.1.0-unstable"
+
+[[command]]
+name = "wasm-custom-section"
+module = "wasm-custom-section"
