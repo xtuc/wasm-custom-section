@@ -52,11 +52,8 @@ fn list_custom_sections(filename: &str) -> Result<(), BoxErr> {
     let parser = wasmparser::Parser::new(0);
 
     for payload in parser.parse_all(&bytes) {
-        match payload? {
-            wasmparser::Payload::CustomSection { name, data, .. } => {
-                println!("Section `{}` ({} bytes)", name, data.len());
-            }
-            _ => {}
+        if let wasmparser::Payload::CustomSection { name, data, .. } = payload? {
+            println!("Section `{}` ({} bytes)", name, data.len());
         }
     }
 
@@ -70,15 +67,12 @@ fn show_custom_sections(filename: &str, section_name: &str) -> Result<(), BoxErr
     let parser = wasmparser::Parser::new(0);
 
     for payload in parser.parse_all(&bytes) {
-        match payload? {
-            wasmparser::Payload::CustomSection { name, data, .. } => {
-                if name == section_name {
-                    println!("Section `{}` ({} bytes):", name, data.len());
-                    println!("{}", pretty_hex(&data));
-                    return Ok(());
-                }
+        if let wasmparser::Payload::CustomSection { name, data, .. } = payload? {
+            if name == section_name {
+                println!("Section `{}` ({} bytes):", name, data.len());
+                println!("{}", pretty_hex(&data));
+                return Ok(());
             }
-            _ => {}
         }
     }
 
