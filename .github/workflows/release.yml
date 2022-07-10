@@ -46,22 +46,6 @@ jobs:
           name: arty
           path: wasm-custom-section-${{ matrix.job.exe }}
 
-  wapm-publish:
-    runs-on: ubuntu-20.04
-    needs: build
-    steps:
-      - name: Setup Wasmer
-        uses: wasmerio/setup-wasmer@v1
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
-        with:
-          name: arty
-      - run: mkdir -p target/wasm32-wasi/release/ && mv wasm-custom-section-wasi.wasm target/wasm32-wasi/release/wasm-custom-section.wasm
-      - name: WAPM publish
-        run: wapm publish
-        env:
-          WAPM_REGISTRY_TOKEN: ${{ secrets.WAPM_REGISTRY_TOKEN }}
-  
   release:
     name: "Tagged Release"
     runs-on: "ubuntu-20.04"
